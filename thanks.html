@@ -5,15 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-
+        /* Styles for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4caf50;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
-        <div id="successMessage" >
-            <p>Thank you for your message! We'll get back to you soon.</p>
-        </div>
+    <!-- The button to trigger the popup -->
+    <button id="showPopup">Show Success Message</button>
+
+    <!-- The popup -->
+    <div id="successPopup" class="popup">
+        <p>Thank you for your message! We'll get back to you soon.</p>
     </div>
 
+    <script>
+        // JavaScript to show/hide the popup
+        const showPopupButton = document.getElementById('showPopup');
+        const successPopup = document.getElementById('successPopup');
+
+        showPopupButton.addEventListener('click', () => {
+            successPopup.style.display = 'block';
+
+            // Automatically hide the popup after a few seconds (e.g., 3 seconds)
+            setTimeout(() => {
+                successPopup.style.display = 'none';
+            }, 3000); // Adjust the time as needed
+        });
+    </script>
 </body>
 </html>
